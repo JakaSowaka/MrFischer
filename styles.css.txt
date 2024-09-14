@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(to bottom, #4A90E2, #50C9C3);
+    position: relative;
+    border: 2px solid #000;
+    overflow: hidden;
+}
+
+.player, .mr-fischer {
+    position: absolute;
+    bottom: 50px;
+    width: 150px;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.player {
+    left: 50px;
+    background-image: url('path-to-player-image');
+}
+
+.mr-fischer {
+    right: 50px;
+    background-image: url('path-to-mr-fischer-image');
+}
+
+.health-bar {
+    width: 200px;
+    height: 20px;
+    background: #ccc;
+    border: 2px solid #000;
+    position: absolute;
+    top: 20px;
+}
+
+.player-health {
+    left: 50px;
+    background: green;
+}
+
+.fischer-health {
+    right: 50px;
+    background: red;
+}
+
+.question-box {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    left: 5%;
+    height: 100px;
+    background: blue;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    line-height: 100px;
+    border-radius: 10px;
+}
+
+.answer-input {
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+    padding: 5px;
+}
