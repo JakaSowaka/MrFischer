@@ -1,86 +1,11 @@
-<script>
-const questions = [
-  { question: 'Como se fala "azul" em inglês?', answer: 'blue' },
-  { question: 'Como se fala "vermelho" em inglês?', answer: 'red' },
-  { question: 'Como se fala "cachorro" em inglês?', answer: 'dog' },
-  { question: 'Como se fala "gato" em inglês?', answer: 'cat' },
-  { question: 'Como se fala "maçã" em inglês?', answer: 'apple' }
-];
-
-let currentQuestion = 0;
-let leftHealth = 100;
-let rightHealth = 100;
-
-const leftHealthBar = document.getElementById('left-health');
-const rightHealthBar = document.getElementById('right-health');
-const questionElement = document.getElementById('question');
-const answerInput = document.getElementById('answer-input');
-const submitButton = document.getElementById('submit-answer');
-const leftCharacter = document.getElementById('left-character');
-const rightCharacter = document.getElementById('right-character');
-
-function updateHealth() {
-  leftHealthBar.style.width = `${leftHealth}%`;
-  rightHealthBar.style.width = `${rightHealth}%`;
-}
-
-function displayQuestion() {
-  questionElement.textContent = questions[currentQuestion].question;
-}
-
-function checkAnswer() {
-  const userAnswer = answerInput.value.trim().toLowerCase();
-  const correctAnswer = questions[currentQuestion].answer.toLowerCase();
-
-  if (userAnswer === correctAnswer) {
-    rightHealth -= 20;  // Mr. Fischer loses health on correct answer
-    updateHealth();
-    leftCharacter.classList.add('attack-animation');
-    setTimeout(() => {
-      leftCharacter.classList.remove('attack-animation');
-    }, 500);
-  } else {
-    leftHealth -= 20;  // Player loses health on incorrect answer
-    updateHealth();
-    rightCharacter.classList.add('attack-animation');
-    setTimeout(() => {
-      rightCharacter.classList.remove('attack-animation');
-    }, 500);
-  }
-
-  answerInput.value = '';
-  currentQuestion = (currentQuestion + 1) % questions.length;
-  displayQuestion();
-
-  if (leftHealth <= 0 || rightHealth <= 0) {
-    endGame();
-  }
-}
-
-function endGame() {
-  if (leftHealth <= 0) {
-    alert("Game Over! Mr. Fischer wins!");
-  } else {
-    alert("Congratulations! You defeated Mr. Fischer!");
-  }
-  resetGame();
-}
-
-function resetGame() {
-  leftHealth = 100;
-  rightHealth = 100;
-  currentQuestion = 0;
-  updateHealth();
-  displayQuestion();
-}
-
-submitButton.addEventListener('click', checkAnswer);
-answerInput.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    checkAnswer();
-  }
-});
-
-displayQuestion();
-updateHealth();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Fischer Game</title>
+</head>
+<body>
+    <h1>Hello, GitHub Pages is working!</h1>
+</body>
+</html>
