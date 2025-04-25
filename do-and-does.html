@@ -4,39 +4,82 @@
 <form id="quiz">
   <ol>
     <li>
+      <img src="your-image1.jpg" alt="Question 1 image" style="width:100px;"><br>
       <label>___ you like pizza?</label><br>
       <input type="radio" name="q1" value="do"> Do<br>
       <input type="radio" name="q1" value="does"> Does<br>
     </li>
 
     <li>
+      <img src="your-image2.jpg" alt="Question 2 image" style="width:100px;"><br>
       <label>___ she play the piano?</label><br>
       <input type="radio" name="q2" value="do"> Do<br>
       <input type="radio" name="q2" value="does"> Does<br>
     </li>
 
     <li>
+      <img src="your-image3.jpg" alt="Question 3 image" style="width:100px;"><br>
       <label>They ___ their homework after dinner.</label><br>
       <input type="radio" name="q3" value="do"> Do<br>
       <input type="radio" name="q3" value="does"> Does<br>
     </li>
 
     <li>
+      <img src="your-image4.jpg" alt="Question 4 image" style="width:100px;"><br>
       <label>He ___ not like broccoli.</label><br>
       <input type="radio" name="q4" value="do"> Do<br>
       <input type="radio" name="q4" value="does"> Does<br>
     </li>
 
     <li>
+      <img src="your-image5.jpg" alt="Question 5 image" style="width:100px;"><br>
       <label>___ your parents speak English?</label><br>
       <input type="radio" name="q5" value="do"> Do<br>
       <input type="radio" name="q5" value="does"> Does<br>
+    </li>
+
+    <li>
+      <img src="your-image6.jpg" alt="Question 6 image" style="width:100px;"><br>
+      <label>She ___ not understand French.</label><br>
+      <input type="radio" name="q6" value="do"> Do<br>
+      <input type="radio" name="q6" value="does"> Does<br>
+    </li>
+
+    <li>
+      <img src="your-image7.jpg" alt="Question 7 image" style="width:100px;"><br>
+      <label>___ we need to leave now?</label><br>
+      <input type="radio" name="q7" value="do"> Do<br>
+      <input type="radio" name="q7" value="does"> Does<br>
+    </li>
+
+    <li>
+      <img src="your-image8.jpg" alt="Question 8 image" style="width:100px;"><br>
+      <label>It ___ not matter to me.</label><br>
+      <input type="radio" name="q8" value="do"> Do<br>
+      <input type="radio" name="q8" value="does"> Does<br>
+    </li>
+
+    <li>
+      <img src="your-image9.jpg" alt="Question 9 image" style="width:100px;"><br>
+      <label>___ they know the answer?</label><br>
+      <input type="radio" name="q9" value="do"> Do<br>
+      <input type="radio" name="q9" value="does"> Does<br>
+    </li>
+
+    <li>
+      <img src="your-image10.jpg" alt="Question 10 image" style="width:100px;"><br>
+      <label>My brother ___ not live here.</label><br>
+      <input type="radio" name="q10" value="do"> Do<br>
+      <input type="radio" name="q10" value="does"> Does<br>
     </li>
   </ol>
   <button type="button" onclick="checkAnswers()">Submit</button>
 </form>
 
-<p id="result"></p>
+<div id="popup" style="display:none; position:fixed; top:20%; left:30%; padding:20px; background-color:white; border:2px solid black; box-shadow:5px 5px 10px rgba(0,0,0,0.5); z-index:1000;">
+  <span id="popupText"></span><br><br>
+  <button onclick="closePopup()">Close</button>
+</div>
 
 <script>
   function checkAnswers() {
@@ -45,7 +88,12 @@
       q2: "does",
       q3: "do",
       q4: "does",
-      q5: "do"
+      q5: "do",
+      q6: "does",
+      q7: "do",
+      q8: "does",
+      q9: "do",
+      q10: "does"
     };
 
     let score = 0;
@@ -56,13 +104,18 @@
       }
     }
 
-    let resultText = `You scored ${score} points. `;
-    if (score === 50) {
-      resultText += "🎉 Congratulations! You won the Grammar Master Badge!";
+    let popupText = `You scored ${score} points. `;
+    if (score === 100) {
+      popupText += "🎉 Congratulations! You are a Grammar Champion!";
     } else {
-      resultText += "Try again to earn the badge!";
+      popupText += "❗ Keep practicing and try again!";
     }
 
-    document.getElementById("result").innerText = resultText;
+    document.getElementById("popupText").innerText = popupText;
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
   }
 </script>
