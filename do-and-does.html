@@ -1,0 +1,68 @@
+<h2>Do or Does? – Grammar Challenge!</h2>
+<p><strong>Choose the correct option:</strong></p>
+
+<form id="quiz">
+  <ol>
+    <li>
+      <label>___ you like pizza?</label><br>
+      <input type="radio" name="q1" value="do"> Do<br>
+      <input type="radio" name="q1" value="does"> Does<br>
+    </li>
+
+    <li>
+      <label>___ she play the piano?</label><br>
+      <input type="radio" name="q2" value="do"> Do<br>
+      <input type="radio" name="q2" value="does"> Does<br>
+    </li>
+
+    <li>
+      <label>They ___ their homework after dinner.</label><br>
+      <input type="radio" name="q3" value="do"> Do<br>
+      <input type="radio" name="q3" value="does"> Does<br>
+    </li>
+
+    <li>
+      <label>He ___ not like broccoli.</label><br>
+      <input type="radio" name="q4" value="do"> Do<br>
+      <input type="radio" name="q4" value="does"> Does<br>
+    </li>
+
+    <li>
+      <label>___ your parents speak English?</label><br>
+      <input type="radio" name="q5" value="do"> Do<br>
+      <input type="radio" name="q5" value="does"> Does<br>
+    </li>
+  </ol>
+  <button type="button" onclick="checkAnswers()">Submit</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+  function checkAnswers() {
+    const answers = {
+      q1: "do",
+      q2: "does",
+      q3: "do",
+      q4: "does",
+      q5: "do"
+    };
+
+    let score = 0;
+    for (let key in answers) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (selected && selected.value === answers[key]) {
+        score += 10;
+      }
+    }
+
+    let resultText = `You scored ${score} points. `;
+    if (score === 50) {
+      resultText += "🎉 Congratulations! You won the Grammar Master Badge!";
+    } else {
+      resultText += "Try again to earn the badge!";
+    }
+
+    document.getElementById("result").innerText = resultText;
+  }
+</script>
